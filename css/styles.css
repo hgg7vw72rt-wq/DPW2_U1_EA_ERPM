@@ -1,0 +1,178 @@
+/* Variables globales */
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #4F772D;
+    --tertiary-color: #EEE0CB;
+    --accent-color: #9A7845;
+    --accent-color-secondary: #F5F5F5;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+}
+/* Estilos generales */
+body {
+    font-family: var(--font-family);
+    margin-left: 120px;
+    margin-right: 120px;
+    padding: 0;
+    background-color: var(--primary-color);
+    color: #333;
+}
+.container {
+    max-width: 1200px;
+    margin: 5px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header header header"
+                         "main main main"
+                         "footer footer footer";
+}
+header {
+    grid-area: header;
+    display: flex;
+    justify-content:flex-start;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: #333 0px 4px 6px -1px, #333 0px 2px 4px -1px;
+}
+main {
+    grid-area: main;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    align-content: center;
+    background-color: var(--primary-color);
+    padding: 20px;
+}
+footer {
+    grid-area: footer;
+    /*
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    background-color: var(--accent-color-secondary);
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: #333 0px 4px 6px -1px;
+}
+nav {
+    overflow: hidden;
+    margin-top: 0px;
+    align-content: center;
+    margin-left: 40px;
+    
+}
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: normal;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-align: center;
+}
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.social-media-icons a img {
+    width: 34px;
+    height: 34px;
+}
+.logo {
+    height: 160px;
+    width: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: #333 0px 4px 6px -1px, #333 0px 2px 4px -1px;
+}
+.forniture-store-image {
+    height: 256px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: #333 0px 4px 6px -1px, #333 0px 2px 4px -1px;
+}
+.forniture-store-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+}
+.slogan {
+    height: auto;
+    width: auto;
+    max-width: fit-content;
+}
+/* Estilos para dispositivos móviles pequeños*/
+@media screen and (max-width: 768px) {
+    body {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header"
+                             "main"
+                             "footer";
+    }
+    header, footer {
+        flex-direction: column;
+        ;
+    }
+    .slogan {
+        display: none;
+    }
+    nav {
+        margin-left: 0px;
+    }
+    main {
+        flex-direction: column;
+    }
+    ul {
+        flex-direction: column;
+        gap: 3px;
+    }
+}
+/* Estilos para tablets y laptops pequeñas */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "header header"
+                             "main main"
+                             "footer footer";
+    }
+    main {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: "left right";
+        gap: 20px;
+    }
+    .slogan {
+        display: none;
+    }
+    .forniture-store-image {
+        grid-column: 1 / span 2;
+        justify-self: center;
+        height: 256px;
+        width: auto;
+    
+    }
+}
